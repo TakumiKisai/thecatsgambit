@@ -54,6 +54,13 @@ html,body{width:100%;background:#000080;}
 .sep-gem{width:18px;height:18px;flex-shrink:0;position:relative;}
 .sep-gem::before{content:'';position:absolute;top:50%;left:50%;width:16px;height:14px;transform:translate(-50%,-50%);background:linear-gradient(135deg,#ffffff 0%,#dbeafe 18%,#93c5fd 35%,#38bdf8 55%,#60a5fa 72%,#2563eb 100%);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);box-shadow:0 0 8px rgba(255,255,255,.45),0 0 16px rgba(147,197,253,.7),0 0 28px rgba(56,189,248,.45),inset 0 1px 2px rgba(255,255,255,.7);animation:sepDiamondSpin 5s linear infinite,sepDiamondPulse 2s ease-in-out infinite;}
 
+/* HERO RAINBOW OVERRIDE */ 
+.hero-sep .sep-l{background:linear-gradient(90deg,transparent,#ff0080,#00d4ff,#7c3aed,#00ffcc);}
+.hero-sep .sep-r{background:linear-gradient(90deg,#00ffcc,#7c3aed,#00d4ff,#ff0080,transparent);}
+.hero-sep .sep-l::after{background:linear-gradient(90deg,transparent,#ff4fd8,#7dd3fc,#ffffff,#00ffff,transparent);}
+.hero-sep .sep-r::before{background:linear-gradient(90deg,transparent,#00ffff,#ffffff,#7dd3fc,#ff4fd8,transparent);}
+.hero-sep .sep-gem::before{content:'';position:absolute;top:50%;left:50%;width:16px;height:14px;transform:translate(-50%,-50%);background:linear-gradient(135deg,#ff00cc,#7dd3fc,#ffffff,#00ffff,#7c3aed);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);box-shadow:0 0 8px rgba(255,255,255,.45),0 0 18px rgba(0,255,255,.6),0 0 28px rgba(255,0,200,.35),inset 0 1px 2px rgba(255,255,255,.7);animation:sepDiamondSpin 5s linear infinite,sepDiamondPulse 2s ease-in-out infinite;}  
+  
 /* CRACK / HERO DIVIDER */
 .crack-div{display:flex;align-items:center;gap:8px;margin:14px 0 0;padding:0 16px;}
 .crack-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--c-fire),transparent);opacity:.6;}
@@ -144,7 +151,7 @@ html,body{width:100%;background:#000080;}
         </div>
       </div>
     </div>
-    <div class="sep" style="margin:14px 0 0;padding:0 16px;"><div class="sep-l"></div><div class="sep-gem"></div><div class="sep-r"></div></div>
+    <div class="sep hero-sep" style="margin:14px 0 0;padding:0 16px;"><div class="sep-l"></div><div class="sep-gem"></div><div class="sep-r"></div></div>
   </div>
 </div>
 
