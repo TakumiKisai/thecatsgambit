@@ -240,6 +240,51 @@ opacity:.9;
 text-shadow:0 0 8px rgba(0,255,255,.25);
 }
 
+/* ELECTRIC MUSIC SEPARATOR */
+.music-sep .sep-l{
+background:linear-gradient(90deg,transparent,#00ffff,#38bdf8,#ffffff,#00ffff);
+}
+
+.music-sep .sep-r{
+background:linear-gradient(90deg,#00ffff,#ffffff,#38bdf8,#00ffff,transparent);
+}
+
+.music-sep .sep-l::after{
+background:linear-gradient(90deg,transparent,#ffffff,#00ffff,#7dd3fc,transparent);
+animation:sepTravelL 1.2s linear infinite;
+}
+
+.music-sep .sep-r::before{
+background:linear-gradient(90deg,transparent,#7dd3fc,#00ffff,#ffffff,transparent);
+animation:sepTravelR 1.2s linear infinite;
+}
+
+.music-sep .sep-gem::before{
+background:linear-gradient(135deg,#ffffff,#00ffff,#38bdf8,#7dd3fc,#ffffff);
+box-shadow:
+0 0 8px rgba(255,255,255,.8),
+0 0 18px rgba(0,255,255,.8),
+0 0 28px rgba(56,189,248,.55);
+animation:
+sepDiamondSpin 3s linear infinite,
+electricPulse .25s infinite alternate,
+electricShake .08s infinite alternate;
+}
+
+@keyframes electricPulse{
+from{
+filter:brightness(1);
+}
+to{
+filter:brightness(1.45);
+}
+}
+
+@keyframes electricShake{
+0%{transform:translate(-50%,-50%) translateX(-1px);}
+100%{transform:translate(-50%,-50%) translateX(1px);}
+}
+  
 </style>
 </head>
 <body>
@@ -285,9 +330,9 @@ text-shadow:0 0 8px rgba(0,255,255,.25);
 
 <!-- SEPARATOR under hero gif -->
 <div class="main" style="padding-bottom:0;">
-  <div class="sep"><div class="sep-l"></div><div class="sep-gem"></div><div class="sep-r"></div></div>
+  <div class="sep music-sep"><div class="sep-l"></div><div class="sep-gem"></div><div class="sep-r"></div></div>
 </div>
-
+  
 <!-- MAIN -->
 <div class="main">
 
