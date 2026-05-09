@@ -109,10 +109,72 @@ html,body{width:100%;background:#000080;}
 .l-btn:hover .l-arr{opacity:1;transform:translateX(3px);}
 
 /* MUSIC */
-.music-panel{background:var(--bg2);border:1px solid var(--border-mid);border-radius:8px;padding:16px;position:relative;overflow:hidden;box-shadow:0 0 18px rgba(56,189,248,.14);transition:all .2s;}
-.music-panel::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(96,165,250,.03) 18px,rgba(96,165,250,.03) 36px);}
-.music-panel:hover{box-shadow:0 0 24px rgba(96,165,250,.24);}
-.music-panel audio{position:relative;width:100%;filter:hue-rotate(180deg) saturate(1.6) brightness(1.08);}
+.music-panel{
+background:linear-gradient(145deg,#071426,#0d1f3a,#13294b);
+border:1px solid rgba(255,255,255,.08);
+border-radius:10px;
+padding:18px;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 0 14px rgba(56,189,248,.18),
+0 0 30px rgba(59,130,246,.12);
+transition:all .25s ease;
+}
+
+.music-panel::before{
+content:'';
+position:absolute;
+inset:0;
+padding:1px;
+border-radius:10px;
+background:linear-gradient(90deg,#ff00cc,#00ffff,#ffffff,#7dd3fc,#7c3aed,#ff00cc);
+background-size:300% 100%;
+animation:musicGlow 6s linear infinite;
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+}
+
+.music-panel::after{
+content:'';
+position:absolute;
+inset:0;
+background:repeating-linear-gradient(
+45deg,
+transparent,
+transparent 18px,
+rgba(96,165,250,.03) 18px,
+rgba(96,165,250,.03) 36px
+);
+pointer-events:none;
+}
+
+.music-panel:hover{
+box-shadow:
+0 0 20px rgba(0,255,255,.22),
+0 0 38px rgba(255,0,200,.12);
+transform:translateY(-2px);
+}
+
+.music-panel audio{
+position:relative;
+z-index:2;
+width:100%;
+filter:
+hue-rotate(190deg)
+saturate(1.8)
+brightness(1.18)
+contrast(1.05);
+border-radius:8px;
+}
+
+@keyframes musicGlow{
+0%{background-position:0% 50%;}
+100%{background-position:300% 50%;}
+}
   
 /* INVITE */
 .invite{background:var(--bg2);border:1px solid var(--border-mid);border-radius:8px;padding:18px;text-align:center;position:relative;overflow:hidden;}
