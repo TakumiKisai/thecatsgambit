@@ -258,7 +258,7 @@ color:#dbeafe;
 </div>
 
 <div class="music-panel">
-  <audio id="themeAudio">
+  <audio id="themeAudio" loop>
     <source src="PokemonLeagueNight.mp3" type="audio/mpeg">
   </audio>
 
@@ -396,6 +396,12 @@ progress.style.width=pct+'%';
 current.textContent=format(audio.currentTime);
 });
 
+document.querySelector('.music-progress-wrap').addEventListener('click',(e)=>{
+const rect=e.currentTarget.getBoundingClientRect();
+const pct=(e.clientX-rect.left)/rect.width;
+audio.currentTime=pct*audio.duration;
+});
+  
 function format(s){
 const m=Math.floor(s/60);
 const sec=Math.floor(s%60).toString().padStart(2,'0');
