@@ -111,15 +111,11 @@ html,body{width:100%;background:#000080;}
 /* MUSIC */
 .music-panel{
 background:linear-gradient(145deg,#071426,#0d1f3a,#13294b);
-border:1px solid rgba(255,255,255,.08);
 border-radius:10px;
 padding:18px;
 position:relative;
 overflow:hidden;
-box-shadow:
-0 0 14px rgba(56,189,248,.18),
-0 0 30px rgba(59,130,246,.12);
-transition:all .25s ease;
+box-shadow:0 0 18px rgba(56,189,248,.18);
 }
 
 .music-panel::before{
@@ -138,35 +134,55 @@ linear-gradient(#fff 0 0);
 mask-composite:exclude;
 }
 
-.music-panel::after{
-content:'';
-position:absolute;
-inset:0;
-background:repeating-linear-gradient(
-45deg,
-transparent,
-transparent 18px,
-rgba(96,165,250,.03) 18px,
-rgba(96,165,250,.03) 36px
-);
-pointer-events:none;
-}
-
-.music-panel:hover{
-box-shadow:
-0 0 20px rgba(0,255,255,.22),
-0 0 38px rgba(255,0,200,.12);
-transform:translateY(-2px);
-}
-
-.music-panel audio{
+.music-btn{
 position:relative;
 z-index:2;
-width:100%;
-border-radius:8px;
-accent-color:#38bdf8;
-color-scheme:light;
-filter:brightness(1.25) saturate(1.4);
+width:52px;
+height:52px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#38bdf8,#2563eb);
+color:white;
+font-size:20px;
+cursor:pointer;
+display:block;
+margin:0 auto 14px;
+box-shadow:0 0 18px rgba(56,189,248,.45);
+transition:.2s;
+}
+
+.music-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 24px rgba(0,255,255,.6);
+}
+
+.music-progress-wrap{
+position:relative;
+z-index:2;
+height:8px;
+background:rgba(255,255,255,.08);
+border-radius:99px;
+overflow:hidden;
+cursor:pointer;
+}
+
+.music-progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffff,#7dd3fc,#ffffff);
+box-shadow:0 0 12px rgba(56,189,248,.45);
+transition:width .1s linear;
+}
+
+.music-time{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:12px;
+font-weight:700;
+color:#dbeafe;
 }
 
 @keyframes musicGlow{
@@ -242,9 +258,20 @@ filter:brightness(1.25) saturate(1.4);
 </div>
 
 <div class="music-panel">
-  <audio controls>
+  <audio id="themeAudio">
     <source src="PokemonLeagueNight.mp3" type="audio/mpeg">
   </audio>
+
+  <button class="music-btn" id="playBtn">▶</button>
+
+  <div class="music-progress-wrap">
+    <div class="music-progress" id="progressBar"></div>
+  </div>
+
+  <div class="music-time">
+    <span id="currentTime">0:00</span>
+    <span id="duration">0:00</span>
+  </div>
 </div>
 
   <!-- NEWEST MEMBERS -->
